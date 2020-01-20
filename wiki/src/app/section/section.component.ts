@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { PageSection, PageSectionType } from "../services/page.service";
+import {
+  PageSection,
+  PageSectionType,
+  PageService
+} from "../services/page.service";
 import { Message } from "primeng/api";
 
 @Component({
@@ -14,12 +18,22 @@ export class SectionComponent implements OnInit {
   columns: any[];
   items: any[];
   images: any[];
+  inheritsName = "";
+  inheritsID = "0";
   width = "100%";
   height = "100%";
 
-  constructor() {}
+  constructor(private page: PageService) {}
 
   ngOnInit() {
+    if (this.section.inherits !== undefined) {
+      console.log(this.section.inherits);
+      this.page.getPage(this.section.inherits.toString()).subscribe(x => {
+        console.log(x);
+        this.inheritsName = x.name;
+        this.inheritsID = this.section.inherits.toString();
+      });
+    }
     if (this.section.type === 4) {
       this.genTable();
     }

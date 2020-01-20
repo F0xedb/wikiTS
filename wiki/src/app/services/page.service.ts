@@ -11,7 +11,7 @@ export interface Page {
 export interface PageSection {
   type: PageSectionType;
   title: string;
-  inheritsID: number; // the inheritance of other pages
+  inherits: number; // the inheritance of other pages
   payload: string; // valid markdown (if a table this should be in csv format)
   width: string; // used by the image component
   height: string; // also used by the image component

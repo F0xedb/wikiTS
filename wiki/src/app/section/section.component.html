@@ -1,8 +1,24 @@
 <div *ngIf="section.type < 2 || section.type > maxType">
   <br />
-  <p-fieldset legend="{{ section.title }}">
-    {{ section.payload }}
-  </p-fieldset>
+  <div *ngIf="inheritsName !== ''">
+    <p-fieldset legend="{{ section.title }}">
+      {{ section.title }} <i class="pi pi-arrow-right"></i>
+      <a
+        href=""
+        [routerLink]="['/page', inheritsID]"
+        routerLinkActive="router-link-active"
+        >inherits {{ inheritsName }}</a
+      >
+      <br />
+      <br />
+      {{ section.payload }}
+    </p-fieldset>
+  </div>
+  <div *ngIf="inheritsName === ''">
+    <p-fieldset legend="{{ section.title }}">
+      {{ section.payload }}
+    </p-fieldset>
+  </div>
 </div>
 <div *ngIf="section.type === 2">
   <h1>{{ section.title }}</h1>
