@@ -1,0 +1,11 @@
+<br />
+<p-card
+  header="{{ page.name }}"
+  subheader="{{ page.description }}"
+  [style]="{ width: '100%' }"
+  styleClass="ui-card-shadow"
+>
+  <div *ngFor="let section of page.sections">
+    <app-section [section]="section"></app-section>
+  </div>
+</p-card>

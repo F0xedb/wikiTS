@@ -1,0 +1,8 @@
+.grid {
+  display: grid;
+  grid-template-columns: 20% 0% 80%; // 0 percent is their for the router
+}
+
+.nav {
+  grid-column: 1;
+}

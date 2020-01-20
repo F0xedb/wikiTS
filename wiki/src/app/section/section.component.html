@@ -1,0 +1,52 @@
+<div *ngIf="section.type < 2 || section.type > maxType">
+  <br />
+  <p-fieldset legend="{{ section.title }}">
+    {{ section.payload }}
+  </p-fieldset>
+</div>
+<div *ngIf="section.type === 2">
+  <h1>{{ section.title }}</h1>
+</div>
+<div *ngIf="section.type === 3">
+  <h2>{{ section.title }}</h2>
+</div>
+<div *ngIf="section.type === 4">
+  <p-fieldset legend="{{ section.title }}">
+    <p-table [value]="items">
+      <ng-template pTemplate="header">
+        <tr>
+          <th *ngFor="let col of columns">
+            {{ col.header }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <td *ngFor="let col of columns">
+            {{ item[col.index] }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-fieldset>
+</div>
+<div *ngIf="section.type === 5 || section.type === 6 || section.type === 7">
+  <p-messages [(value)]="msg" [closable]="false"></p-messages>
+</div>
+<div *ngIf="section.type === 8">
+  <p-overlayPanel [showCloseIcon]="true" #op>
+    <img src="{{ section.payload }}" alt="{{ section.title }}" />
+  </p-overlayPanel>
+  <img
+    src="{{ section.payload }}"
+    alt="{{ section.title }}"
+    [style.width]="width"
+    [style.height]="height"
+    (click)="op.toggle($event)"
+  />
+</div>
+<div *ngIf="section.type === 9">
+  <a href="{{ section.payload | urlFormat: 'url' }}">{{
+    section.payload | urlFormat: "name"
+  }}</a>
+</div>
