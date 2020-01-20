@@ -11,7 +11,7 @@ services:
   frontend:
     build: wiki
     ports:
-      - "4200:4200"
+      - "8080:80"
     volumes:
-      - "./wiki/build/wiki:/app"
+      - "./wiki/build/wiki:/var/www/html"
     restart: unless-stopped
