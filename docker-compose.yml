@@ -8,10 +8,10 @@ services:
     volumes:
       - "./api/:/app"
     restart: unless-stopped
-    frontend:
-      build: wiki
-      ports:
-        - "4200:4200"
-      volumes:
-        - "./wiki/build/wiki:/app"
-      restart: unless-stopped
+  frontend:
+    build: wiki
+    ports:
+      - "4200:4200"
+    volumes:
+      - "./wiki/build/wiki:/app"
+    restart: unless-stopped
