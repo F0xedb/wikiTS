@@ -13,34 +13,16 @@
           "inherits": 1,
           "payload": "The jsonReader class manipulates json files into a usable json object"
         },
-        {
-          "type": 2,
-          "title": "A title"
-        },
-        {
-          "type": 3,
-          "title": "A subtitle"
-        },
+        { "type": 2, "title": "A title" },
+        { "type": 3, "title": "A subtitle" },
         {
           "type": 4,
           "title": "A table",
           "payload": "year, month, day, hour\n2020, 1, 1,1\n2019, 1, 2, 3"
         },
-        {
-          "type": 5,
-          "title": "INFO",
-          "payload": "This is some info"
-        },
-        {
-          "type": 6,
-          "title": "WARN",
-          "payload": "This is some warning"
-        },
-        {
-          "type": 7,
-          "title": "ERROR",
-          "payload": "This is some error"
-        },
+        { "type": 5, "title": "INFO", "payload": "This is some info" },
+        { "type": 6, "title": "WARN", "payload": "This is some warning" },
+        { "type": 7, "title": "ERROR", "payload": "This is some error" },
         {
           "type": 8,
           "title": "Image",
@@ -78,45 +60,22 @@
       {
         "name": "pages",
         "elements": [
-          {
-            "name": "Main Page",
-            "pageID": 0
-          },
-          {
-            "name": "Reader Class",
-            "pageID": 1
-          }
+          { "name": "Main Page", "pageID": 0 },
+          { "name": "Reader Class", "pageID": 1 }
         ]
       },
-      {
-        "name": "classes",
-        "elements": [
-          {
-            "name": "Reader",
-            "pageID": 1
-          }
-        ]
-      }
+      { "name": "classes", "elements": [{ "name": "Reader", "pageID": 1 }] }
     ]
   },
   "footer": {
     "sections": [
-      {
-        "name": "WikiTS",
-        "description": "build with love just for you"
-      },
+      { "name": "WikiTS", "description": "build with love just for you" },
       {
         "name": "Links",
         "description": "Must visit websites",
         "links": [
-          {
-            "name": "TOS",
-            "url": "https://tos.odex.be"
-          },
-          {
-            "name": "github",
-            "url": "https://github.com/F0xedb"
-          }
+          { "name": "TOS", "url": "https://tos.odex.be" },
+          { "name": "github", "url": "https://github.com/F0xedb" }
         ]
       }
     ]

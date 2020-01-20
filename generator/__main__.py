@@ -19,7 +19,9 @@ def populate(data):
     """
     Convert the input string into a json file
     """
-    print(data)
+    file = "declaration.json"
+    with open(file, "w") as text_file:
+        text_file.write(data)
 
 if __name__ == "__main__":
     if args.version:
@@ -32,7 +34,8 @@ if __name__ == "__main__":
         if file.exists(args.input):
             print("Building json file")
             if file.isDir(args.input):
-                populate(buildDir.buildDir(args.input))
+                print("Detected input as directory. Checking for compatibility")
+                populate(json.yamlToJsonFromString(buildDir.buildDir(args.input)))
             else:
                 populate(json.yamlToJson(args.input))
         else:
