@@ -16,5 +16,10 @@ export const env = {
   //* The current log level (Higher number displays more information)
   logLevel: 3,
   //* The port on which to expose this API
-  port: 3000
+  port: 3000,
+  //* The name of the API
+  name: "WikiTS",
+  //* the declaration to use in order to render the wiki out
+  declarationJson: "/app/declaration.json",
+  version: "v0.0.1"
 };
