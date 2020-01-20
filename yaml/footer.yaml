@@ -1,0 +1,9 @@
+- name: WikiTS
+  description: build with love just for you
+- name: Links
+  description: Must visit websites
+  links:
+    - name: TOS
+      url: https://tos.odex.be
+    - name: github
+      url: https://github.com/F0xedb

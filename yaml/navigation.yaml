@@ -1,0 +1,12 @@
+name: WikiTS navigation
+sections:
+  - name: pages
+    elements:
+      - name: Main Page
+        pageID: 0
+      - name: Reader Class
+        pageID: 1
+  - name: classes
+    elements:
+      - name: Reader
+        pageID: 1
