@@ -13,5 +13,5 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - "./wiki/build/wiki:/var/www/html"
+      - "./wiki/dist/wiki:/var/www/html"
     restart: unless-stopped
