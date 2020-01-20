@@ -4,5 +4,8 @@ import json
 
 
 def yamlToJson(file):
+    """
+    Convert the input file (which should be yaml) into a json string
+    """
     y=yaml.load(open(file))
     return json.dumps(y)
