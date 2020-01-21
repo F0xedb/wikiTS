@@ -1,6 +1,10 @@
 - name: JSON declaration
   description: A wiki page on how the json declaration is build
   sections:
+    - type: 1
+      title: JSON declaration
+      inherits: 2
+      payload: Extra information about the declaration and its state
     - type: 10
       title: Method signature
       payload: |-
