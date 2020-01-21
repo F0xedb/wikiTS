@@ -8,4 +8,4 @@ RUN npm install
 
 RUN npm install typescript -g
 
-CMD [ "tsc", "server.ts" ]
+CMD [ "sh", "-c", "npm install && tsc server.ts" ]
