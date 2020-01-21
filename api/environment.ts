@@ -5,16 +5,15 @@
 
 //* This holds all environmental data
 export const env = {
+  //* The ip address to listen to
+  ip: "0.0.0.0",
   //* An array of CORS allowed domains
   cors: [
     "http://localhost:4200", // angular application
     "http://localhost", // angular application
     "http://localhost:8080", // angular application
-    "http://192.168.1.201:8080", // angular application
-    "http://odex.be", // official domain
-    "http://pbfp.xyz", // official domain
-    "https://odex.be", // https variant
-    "https://pbfp.xyz" // https variant
+    "http://wiki-demo.odex.be", // official domain
+    "https://wiki-demo.odex.be" // https variant
   ],
   //* The current log level (Higher number displays more information)
   logLevel: 3,

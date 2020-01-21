@@ -10,4 +10,6 @@ const app = express();
 CorsBuilder(app);
 RouteBuilder(app);
 
-app.listen(env.port, () => log(`${env.name} listening on port ${env.port}!`));
+app.listen(env.port, env.ip, () =>
+  log(`${env.name} listening on port ${env.port}!`)
+);

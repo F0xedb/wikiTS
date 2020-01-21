@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  api:
+    build: api
+    volumes:
+      - "./api/:/app"
+    restart: unless-stopped
+    networks:
+      - web
+  frontend:
+    build: wiki
+    volumes:
+      - "./wiki/dist/wiki:/var/www/html"
+    restart: unless-stopped
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      # HTTPS Rules
+      - "traefik.http.routers.wiki-demo_SSL.rule=Host(`wiki-demo.odex.be`)"
+      - "traefik.http.routers.wiki-demo_SSL.entrypoints=https"
+      - "traefik.http.routers.wiki-demo_SSL.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.wiki-demo_SSL.tls=true"
+      - "traefik.http.services.wiki-demo_SSL.loadbalancer.server.port=80"
+      # HTTP
+      - "traefik.http.routers.wiki-demo.rule=Host(`wiki-demo.odex.be`)"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.wiki-demo.entrypoints=http"
+      - "traefik.http.routers.wiki-demo.middlewares=https-redirect"
+networks:
+  web:
+    external: true
