@@ -7,6 +7,7 @@ interface WikiData {
   name: string;
   logo: string;
   description: string;
+  company: string;
 }
 
 @Injectable({ providedIn: "root" })

@@ -6,7 +6,8 @@ import { CorsBuilder } from "./business/Cors";
 // @ts-ignore
 const app = express();
 
-RouteBuilder(app);
+// cors must be build before all other routes
 CorsBuilder(app);
+RouteBuilder(app);
 
 app.listen(env.port, () => log(`${env.name} listening on port ${env.port}!`));

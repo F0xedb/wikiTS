@@ -19,6 +19,7 @@ import { LightboxModule } from "primeng/lightbox";
 import { OverlayPanelModule } from "primeng/overlaypanel";
 import { TableModule } from "primeng/table";
 import { UrlFormatPipe } from './url-format.pipe';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UrlFormatPipe } from './url-format.pipe';
     PageComponent,
     LandingPageComponent,
     SectionComponent,
-    UrlFormatPipe
+    UrlFormatPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

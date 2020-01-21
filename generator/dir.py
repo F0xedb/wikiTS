@@ -90,7 +90,7 @@ def getFiles(directory):
     It returns 1 list containing all lines
     """
     out = []
-    for file in files.listdir(directory):
+    for file in files.getFilesFromDir(directory):
         out += getFile(mergePaths(directory, file))
     return out
 

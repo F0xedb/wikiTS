@@ -16,9 +16,12 @@ def isDir(endpoint):
     """
     return os.path.isdir(endpoint)
 
+
 def getFilesFromDir(directory, glob="*.yaml"):
     """
     Returns a list of paths to files in a given directory
     """
     onlyfiles = [f for f in listdir(directory) if isfile(join(directory, f))]
-    return fnmatch.filter(onlyfiles, glob)
+    list = fnmatch.filter(onlyfiles, glob)
+    list.sort()
+    return list

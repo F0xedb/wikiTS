@@ -11,7 +11,8 @@ export function GeneralDescription(app: any) {
     res.send({
       name: Reader().name,
       logo: Reader().logo,
-      description: Reader().description
+      description: Reader().description,
+      company: Reader().company
     })
   );
 }

@@ -1,0 +1,16 @@
+<footer class="footer-distributed">
+  <div *ngFor="let section of footer?.sections" class="flex">
+    <h3>{{ section?.name }}</h3>
+    <p class="footer-company-about grey">{{ section?.description }}</p>
+    <div *ngIf="section.links">
+      <div class="footer-icons">
+        <div *ngFor="let link of section.links">
+          <br />
+          <a href="{{ link.url }}" class="link"
+            ><i class=" large {{ link.logo }}"></i> {{ link.name }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

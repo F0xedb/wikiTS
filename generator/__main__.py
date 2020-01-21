@@ -13,6 +13,8 @@ parser = argparse.ArgumentParser(prog="WikiTS generator")
 parser.add_argument('--json', '-j', help='Convert input yaml to json', action='store_true')
 parser.add_argument('--version', '-v', help='Print version information', action='store_true')
 parser.add_argument('--input', '-i', type=str,  help='yaml file or directory')
+parser.add_argument('--log', '-l', help='Log the generate yaml file with line numbers', action='store_true')
+
 args = parser.parse_args()
 
 def populate(data):
@@ -35,7 +37,11 @@ if __name__ == "__main__":
             print("Building json file")
             if file.isDir(args.input):
                 print("Detected input as directory. Checking for compatibility")
-                populate(json.yamlToJsonFromString(buildDir.buildDir(args.input)))
+                yaml = buildDir.buildDir(args.input)
+                if args.log:
+                    for i, item in enumerate(yaml.split("\n")):
+                        print("{} {}".format(i, item))
+                populate(json.yamlToJsonFromString(yaml))
             else:
                 populate(json.yamlToJson(args.input))
         else:

@@ -1,0 +1,12 @@
+- name: YAML Declaration
+  description: A wiki page on how the yaml declaration is build
+  sections:
+    - type: 1
+      title: Some title
+      payload: This page is used as a reference in the main page
+    - type: 9
+      title: We even have links as a section
+      payload: https://tos.odex.be
+    - type: 9
+      title: Or with alternate text
+      payload: link here;https://tos.odex.be

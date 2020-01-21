@@ -58,6 +58,7 @@ interface NavigationElement {
 
 export interface JSONDeclaration {
   name: string;
+  company: string;
   logo: string;
   description: string;
   pages: Page[];

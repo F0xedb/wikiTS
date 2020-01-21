@@ -8,6 +8,8 @@ export const env = {
   //* An array of CORS allowed domains
   cors: [
     "http://localhost:4200", // angular application
+    "http://localhost", // angular application
+    "http://localhost:8080", // angular application
     "http://odex.be", // official domain
     "http://pbfp.xyz", // official domain
     "https://odex.be", // https variant

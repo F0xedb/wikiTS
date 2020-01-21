@@ -1,0 +1,62 @@
+name: WikiTS navigation
+sections:
+  - name: Pages
+    elements:
+      - name: Example Page
+        pageID: 0
+      - name: YAML declaration
+        pageID: 13
+      - name: JSON declaration
+        pageID: 12
+  - name: Classes
+    elements:
+      - name: Cors
+        pageID: 1
+      - name: DeclarationDefinition
+        pageID: 2
+      - name: JsonReader
+        pageID: 3
+      - name: Log
+        pageID: 4
+      - name: ApiInfo
+        pageID: 5
+      - name: FooterRoutes
+        pageID: 6
+      - name: GeneralRoutes
+        pageID: 7
+      - name: NavigationRoutes
+        pageID: 8
+      - name: PageRoutes
+        pageID: 9
+      - name: RouteBuilder
+        pageID: 10
+      - name: SectionRoutes
+        pageID: 11
+  - name: Business
+    elements:
+      - name: Cors
+        pageID: 1
+      - name: DeclarationDefinition
+        pageID: 2
+      - name: JsonReader
+        pageID: 3
+  - name: Log
+    elements:
+      - name: Log
+        pageID: 4
+  - name: Routes
+    elements:
+      - name: ApiInfo
+        pageID: 5
+      - name: FooterRoutes
+        pageID: 6
+      - name: GeneralRoutes
+        pageID: 7
+      - name: NavigationRoutes
+        pageID: 8
+      - name: PageRoutes
+        pageID: 9
+      - name: RouteBuilder
+        pageID: 10
+      - name: SectionRoutes
+        pageID: 11

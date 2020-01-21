@@ -6,3 +6,18 @@
 .nav {
   grid-column: 1;
 }
+
+/* When the screen is to small the navbar will vanish*/
+@media only screen and (max-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 0% 0% 100%; // 0 percent is their for the router
+  }
+  .nav {
+    position: absolute;
+    left: 0px;
+    right: 20%;
+    // draw ontop of all other elements
+    z-index: 1000;
+  }
+}

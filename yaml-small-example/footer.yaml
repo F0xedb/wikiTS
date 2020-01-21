@@ -5,5 +5,7 @@
   links:
     - name: TOS
       url: https://tos.odex.be
+      logo: fas fa-server # as described on font-awesome
     - name: github
       url: https://github.com/F0xedb
+      logo: fab fa-github # as described on font-awesome
