@@ -21,9 +21,14 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 -->
-<app-header (navbar)="navBarStatus($event)"></app-header>
-<div class="grid">
-  <app-navigation *ngIf="bShowNavBar" class="nav"></app-navigation>
+<app-header (navbar)="navBarStatus($event)" [update]="navEmitter"></app-header>
+<div class="grid" (click)="clicked()">
+  <app-navigation
+    *ngIf="bShowNavBar"
+    class="nav"
+    (navbar)="navBarUpdate($event)"
+    [update]="navElementEmitter"
+  ></app-navigation>
   <router-outlet></router-outlet>
 </div>
 <app-footer></app-footer>

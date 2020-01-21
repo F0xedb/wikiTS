@@ -1,18 +1,18 @@
 /*
  *  MIT License
- *  
+ *
  *  Copyright (c) 2020 Meyers Tom
- *  
+ *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
  *  in the Software without restriction, including without limitation the rights
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- *  
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- *  
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,9 +20,9 @@
  *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
-*/
+ */
 
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import {
   NavigationService,
   Navigation,
@@ -30,6 +30,7 @@ import {
 } from "../services/navigation.service";
 import { MenuItem } from "primeng/api";
 import { Router } from "@angular/router";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-navigation",
@@ -38,7 +39,11 @@ import { Router } from "@angular/router";
 })
 export class NavigationComponent implements OnInit {
   nav: Navigation;
+  showable = true;
   items: MenuItem[];
+  @Output() navbar: EventEmitter<boolean> = new EventEmitter();
+  @Input("update") navbarSetter: Observable<boolean>;
+
   constructor(private NavService: NavigationService, private router: Router) {
     this.NavService.getNavigation().subscribe(x => {
       this.nav = x;
@@ -47,11 +52,24 @@ export class NavigationComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.navbarSetter.subscribe(x => {
+      this.showable = x;
+    });
+  }
 
   page(id: number) {
-    console.log("Opening page: " + id);
     this.router.navigate(["page", id]);
+    this.navbar.emit(false);
+    if (window.innerWidth < 798) {
+      this.showable = false;
+    } else {
+      this.showable = true;
+    }
+  }
+
+  show() {
+    this.showable = true;
   }
 
   getSectionItems(section: NavigationSection): MenuItem[] {
