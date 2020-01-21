@@ -2,12 +2,14 @@
   <br />
   <div *ngIf="inheritsName !== ''">
     <p-fieldset legend="{{ section.title }}">
-      {{ section.title }} <i class="pi pi-arrow-right"></i>
+      {{ section.title }} <b>inherits </b>
+      <i class="pi pi-arrow-right icon-inherit"></i>
       <a
+        class="inherit"
         href=""
         [routerLink]="['/page', inheritsID]"
         routerLinkActive="router-link-active"
-        >inherits {{ inheritsName }}</a
+        >{{ inheritsName }}</a
       >
       <br />
       <br />

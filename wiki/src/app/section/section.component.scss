@@ -1,0 +1,17 @@
+$primary: #7c4dff;
+$light: #536dfe;
+$dark: #551a8b;
+
+.inherit {
+  color: $light;
+}
+
+.inherit:hover {
+  color: $dark;
+}
+
+.icon-inherit {
+  font-size: 0.9rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
