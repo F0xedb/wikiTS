@@ -1,0 +1,21 @@
+# this docker-compose file will generate the correct files in the api and in the frontend
+# this is useful if you don't have the required dependencies installed
+version: "3"
+services:
+  api-gen:
+    build:
+      context: ./api
+      dockerfile: Dockerfile-gen
+    volumes:
+      - "./api:/app"
+  frontend-gen:
+    build:
+      context: ./wiki
+      dockerfile: Dockerfile-gen
+    volumes:
+      - "./wiki:/app"
+  generator:
+    build: generator
+    command: python -m generator -j --log -i yaml-bigger-example
+    volumes:
+      - "./:/app"
