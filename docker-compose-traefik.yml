@@ -6,8 +6,19 @@ services:
     volumes:
       - "./api/:/app"
     restart: unless-stopped
-    ports:
-      - "3000:3000"
+    labels:
+      - "traefik.enable=true"
+      # HTTPS Rules
+      - "traefik.http.routers.wiki-api_SSL.rule=Host(`wiki-api.odex.be`)"
+      - "traefik.http.routers.wiki-api_SSL.entrypoints=https"
+      - "traefik.http.routers.wiki-api_SSL.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.wiki-api_SSL.tls=true"
+      - "traefik.http.services.wiki-api_SSL.loadbalancer.server.port=3000"
+      # HTTP
+      - "traefik.http.routers.wiki-api.rule=Host(`wiki-api.odex.be`)"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.wiki-api.entrypoints=http"
+      - "traefik.http.routers.wiki-api.middlewares=https-redirect"
     networks:
       - web
   frontend:

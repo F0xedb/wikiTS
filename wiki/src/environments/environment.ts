@@ -28,7 +28,7 @@
 
 export const environment = {
   production: false,
-  baseURL: "http://api.example.com:3000"
+  baseURL: "https://wiki-api.odex.be"
 };
 
 /*
