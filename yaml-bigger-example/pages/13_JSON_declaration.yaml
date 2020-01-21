@@ -1,12 +1,137 @@
 - name: JSON declaration
   description: A wiki page on how the json declaration is build
   sections:
-    - type: 1
-      title: Some title
-      payload: This page is used as a reference in the main page
-    - type: 9
-      title: We even have links as a section
-      payload: https://tos.odex.be
-    - type: 9
-      title: Or with alternate text
-      payload: link here;https://tos.odex.be
+    - type: 10
+      title: Method signature
+      payload: |-
+        interface Page {
+          name: string;
+          description: string;
+          sections: PageSection[];
+        }
+
+        interface PageSection {
+          type: PageSectionType;
+          title: string;
+          inheritsID: number; // the inheritance of other pages
+          payload: string; // valid markdown (if a table this should be in csv format)
+          width: string; // used by the image component
+          height: string; // also used by the image component
+          css: string; // the prismjs css class to define the type of code
+        }
+
+        enum PageSectionType {
+          TEXT, //* This section is just plain text
+          TITLE, //* This section describes a title
+          SUBTITLE, //* This section describes a subtitle
+          TABLE, //* This section describes a table
+          INFO, //* this section is a info note
+          WARNING, //* this section is a warning note
+          ERROR, //* this section is a error note
+          IMAGE, //* this section describes an image (base64, url and more)
+          LINK, //* a reference link
+          CODE //* the code highlighter
+        }
+
+        interface Footer {
+          sections: FooterSection[];
+        }
+
+        interface FooterSection {
+          name: string;
+          description: string;
+          links: Link[];
+        }
+
+        interface Link {
+          logo: string;
+          url: string;
+          name: string;
+        }
+
+        interface Navigation {
+          name: string;
+          sections: NavigationSection[];
+        }
+
+        interface NavigationSection {
+          name: string;
+          elements: NavigationElement[];
+        }
+
+        interface NavigationElement {
+          name: string;
+          pageID: number;
+        }
+
+        export interface JSONDeclaration {
+          name: string;
+          company: string;
+          logo: string;
+          description: string;
+          pages: Page[];
+          navigation: Navigation;
+          footer: Footer;
+        }
+      css: language-ts
+    - type: 10
+      title: declaration example
+      payload: |-
+        {
+          name: "WikiTS",
+          company: "ODEX",
+          logo: "https://tos.odex.be/images/logo.vsg"
+          description: "A modern yet configurable wiki",
+          pages: [
+            {
+              name: "Class",
+              description: "This class does something"
+              sections: [
+                {
+                  type: 10,
+                  title: "Some title",
+                  inheritsID: 1,
+                  payload: "echo hello",
+                  width: "300px",
+                  height: "300px",
+                  css: "language-sh"
+                },
+                {
+                  type: 1,
+                  title: "Some title",
+                  payload: "echo hello",
+                },
+              ]
+            }
+          ],
+          navigation: {
+            name: "WikiTS Navigation",
+            sections: [
+              {
+                name: "Classes",
+                elements: [
+                  {
+                    name: "Class1",
+                    pageID: 1
+                  },
+                  {
+                    name: "Class2",
+                    pageID: 2
+                  },
+                ]
+              }
+            ]
+          },
+          footer: {
+            sections: [
+              {
+                name: "WikiTS",
+                description: "Build with love"
+              }
+            ]
+          }
+        }
+      css: language-json
+    - type: 6
+      title: Full example
+      payload: For an example of a full definition visit the WikiTS repository and look under api/declaration.json.
