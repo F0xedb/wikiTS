@@ -8,6 +8,8 @@ sections:
         pageID: 13
       - name: JSON declaration
         pageID: 12
+      - name: Wiki Generator
+        pageID: 14
   - name: Classes
     elements:
       - name: Cors

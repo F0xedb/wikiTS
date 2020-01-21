@@ -38,6 +38,7 @@
               "node_modules/prismjs/components/prism-typescript.min.js",
               "node_modules/prismjs/components/prism-json.min.js",
               "node_modules/prismjs/components/prism-yaml.min.js",
+              "node_modules/prismjs/components/prism-bash.min.js",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
             ]
           },
@@ -112,6 +113,7 @@
               "node_modules/prismjs/components/prism-typescript.min.js",
               "node_modules/prismjs/components/prism-json.min.js",
               "node_modules/prismjs/components/prism-yaml.min.js",
+              "node_modules/prismjs/components/prism-bash.min.js",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
             ]
           }

@@ -10,6 +10,7 @@ export const env = {
     "http://localhost:4200", // angular application
     "http://localhost", // angular application
     "http://localhost:8080", // angular application
+    "http://192.168.1.201:8080", // angular application
     "http://odex.be", // official domain
     "http://pbfp.xyz", // official domain
     "https://odex.be", // https variant

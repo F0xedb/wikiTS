@@ -2,11 +2,287 @@
   description: A wiki page on how the yaml declaration is build
   sections:
     - type: 1
-      title: Some title
-      payload: This page is used as a reference in the main page
-    - type: 9
-      title: We even have links as a section
-      payload: https://tos.odex.be
-    - type: 9
-      title: Or with alternate text
-      payload: link here;https://tos.odex.be
+      title: Types
+      payload: |-
+        There are 2 types of yaml declarations.
+        The first is one giant file
+        The second declaration is a yaml directory.
+        It is recommended to use the yaml directory if you are planning on building a large wiki.
+        If it is for a small wiki or testing purposes then you can use the single declaration file.
+    - type: 2
+      title: Declaration
+    - type: 3
+      title: Declaration file
+    - type: 1
+      title: The file
+      payload: |-
+        You can name the file however you see fit. All that matters is that the file follows the yaml specification.
+    - type: 10
+      title: Example file
+      css: language-yaml
+      payload: |-
+        name: WikiTS
+        logo: https://tos.odex.be/images/logo.svg
+        description: A modern wiki describing you code
+        pages:
+          - name: Main Page
+            description: Example page with all different section types
+            sections:
+              - type: 1
+                title: JsonReader
+                inherits: 1
+                payload: The jsonReader class manipulates json files into a usable json object
+              - type: 2
+                title: A title
+              - type: 3
+                title: A subtitle
+              - type: 4
+                title: A table
+                payload: |-
+                  year, month, day, hour
+                  2020, 1, 1,1
+                  2019, 1, 2, 3
+              - type: 5
+                title: INFO
+                payload: This is some info
+              - type: 6
+                title: WARN
+                payload: This is some warning
+              - type: 7
+                title: ERROR
+                payload: This is some error
+              - type: 8
+                title: Image
+                payload: https://tos.odex.be/images/logo.svg
+                width: 300px
+                height: 400px
+          - name: Reader
+            description: A reader object
+            sections:
+              - type: 1
+                title: Some title
+                payload: This page is used as a reference in the main page
+              - type: 9
+                title: We even have links as a section
+                payload: https://tos.odex.be
+              - type: 9
+                title: Or with alternate text
+                payload: link here;https://tos.odex.be
+        navigation:
+          name: WikiTS navigation
+          sections:
+            - name: pages
+              elements:
+                - name: Main Page
+                  pageID: 0
+                - name: Reader Class
+                  pageID: 1
+            - name: classes
+              elements:
+                - name: Reader
+                  pageID: 1
+        footer:
+          sections:
+            - name: WikiTS
+              description: build with love just for you
+            - name: Links
+              description: Must visit websites
+              links:
+                - name: TOS
+                  url: https://tos.odex.be
+                - name: github
+                  url: https://github.com/F0xedb
+    - type: 5
+      title: Note
+      payload: |-
+        To generate this file you should have python3 installed.
+        PyYaml should also be installed after that the following command should work
+        python -m generator -j -i file.yaml
+    - type: 6
+      title: Parsing error
+      payload: |-
+        In case you have a parsing error that the following command will help
+        python -m generator -j --log -i file.yaml
+    - type: 3
+      title: Declaration directory
+    - type: 4
+      title: Structure
+      payload: |-
+        directory, filename, function
+        root/, general.yaml, shows the general structure of your wiki eg the name
+        root/, navigation.yaml, shows the navigation structure shown on the left of this websites
+        root/, footer.yaml, shows all information about the footer of your webpage
+        root/pages/, *.yaml, generates each page that exists in the wiki, you access the page alphabetically as their id's
+    - type: 1
+      title: general.yaml file
+      payload: |-
+        The following shows an example of the general.yaml file.
+        It contains major info about your wiki such as the name, company, logo and description.
+    - type: 10
+      title: example general.yaml file
+      css: language-yaml
+      payload: |-
+        name: WikiTS
+        company: ODEX
+        logo: https://tos.odex.be/images/logo.svg
+        description: A modern yet configurable wiki
+    - type: 1
+      title: navigation.yaml file
+      payload: |-
+        The following shows an example of the navigation.yaml file.
+        It contains information about now to navigate your wiki.
+    - type: 10
+      title: example navigation.yaml file
+      css: language-yaml
+      payload: |-
+        name: WikiTS navigation
+        sections:
+          - name: pages
+            elements:
+              - name: Main Page
+                pageID: 0
+              - name: Reader Class
+                pageID: 1
+          - name: classes
+            elements:
+              - name: Reader
+                pageID: 1
+    - type: 5
+      title: PageID numeration
+      payload: |-
+        Each element must have a pageID. 
+        A page id describes where you need to navigate too.
+        The Id is the alphabetical position of your files.
+        Starting from index 0.
+        This means the first page has pageID = 0
+    - type: 1
+      title: footer.yaml file
+      payload: |-
+        The following shows an example of the footer.yaml file.
+        It contains information what should be in the footer
+    - type: 10
+      title: example footer.yaml file
+      css: language-yaml
+      payload: |-
+        - name: WikiTS
+          description: build with ❤ just for you # yes unicode also works
+        - name: Links
+          description: Must visit websites
+          links:
+            - name: TOS
+              url: https://tos.odex.be
+              logo: fas fa-server # as described on font-awesome
+            - name: github
+              url: https://github.com/F0xedb
+              logo: fab fa-github # as described on font-awesome
+    - type: 5
+      title: Logos
+      payload: |-
+        Logos are described as the css selectors as defined by fontawesome.
+        Here is a list of supported icons <a href="https://fontawesome.com/icons?d=gallery">icons</a>
+    - type: 1
+      title: pages directory
+      payload: |-
+        Each page should be in the pages directory.
+        Each page should end with the .yaml extension.
+        An index will be build out of all pages.
+        First the pages will be sorted alphabetically.
+        If you wish to reference that page you can find its id by seeing in which part that page is present.
+
+    - type: 10
+      title: example pages/01_main_page.yaml file
+      css: language-yaml
+      payload: |-
+        - name: Main Page
+        description: Example page with all different section types
+        sections:
+          - type: 1
+            title: JsonReader
+            inherits: 1
+            payload: The jsonReader class manipulates json files into a usable json object
+          - type: 2
+            title: A title
+          - type: 3
+            title: A subtitle
+          - type: 4
+            title: A table
+            payload: |-
+              year, month, day, hour
+              2020, 1, 1,1
+              2019, 1, 2, 3
+          - type: 5
+            title: INFO
+            payload: This is some info
+          - type: 6
+            title: WARN
+            payload: This is some warning
+          - type: 7
+            title: ERROR
+            payload: This is some error
+          - type: 8
+            title: Image
+            payload: https://tos.odex.be/images/logo.svg
+            width: 300px
+            height: 400px
+    - type: 10
+      title: example pages/01_main_page.yaml file
+      css: language-yaml
+      payload: |-
+        - name: Main Page
+        description: Example page with all different section types
+        sections:
+          - type: 1
+            title: JsonReader
+            inherits: 1
+            payload: The jsonReader class manipulates json files into a usable json object
+          - type: 2
+            title: A title
+          - type: 3
+            title: A subtitle
+          - type: 4
+            title: A table
+            payload: |-
+              year, month, day, hour
+              2020, 1, 1,1
+              2019, 1, 2, 3
+          - type: 5
+            title: INFO
+            payload: This is some info
+          - type: 6
+            title: WARN
+            payload: This is some warning
+          - type: 7
+            title: ERROR
+            payload: This is some error
+          - type: 8
+            title: Image
+            payload: https://tos.odex.be/images/logo.svg
+            width: 300px
+            height: 400px
+    - type: 10
+      title: example pages/02_reader_page.yaml file
+      css: language-yaml
+      payload: |-
+        - name: Reader
+          description: A reader object
+          sections:
+            - type: 1
+              title: Some title
+              payload: This page is used as a reference in the main page
+            - type: 9
+              title: We even have links as a section
+              payload: https://tos.odex.be
+            - type: 9
+              title: Or with alternate text
+              payload: link here;https://tos.odex.be
+    - type: 5
+      title: Note
+      payload: |-
+        To generate the json file you should have python3 installed.
+        PyYaml should also be installed after that the following command should work
+        python -m generator -j -i directory
+    - type: 6
+      title: Parsing error
+      payload: |-
+        In case you have a parsing error that the following command will help
+        python -m generator -j --log -i directory

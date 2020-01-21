@@ -1,0 +1,34 @@
+- name: Wiki Generator
+  description: |-
+    A python module that helps you generator the wiki definition file.
+    It supports json, yaml, markdown and more.
+    This wiki entry will help you generating wiki entries.
+  sections:
+    - type: 1
+      title: Dependencies
+      payload: |-
+        You need the following dependencies installed on your system to generate the wiki declaration file
+        * python3
+        * PyYaml
+        If those are installed you can do the following command
+    - type: 10
+      title: Shell command
+      css: language-shell
+      payload: |-
+        python -m generator -h # shows the help menu
+        python -m generator -v # shows general information about the tool
+        python -m generator --json # convert the input into the json declaration file
+    - type: 1
+      title: Input
+      inherits: 13
+      payload: |-
+        You can input the following formats:
+        * yaml file
+        * yaml directory
+        These will be converted into a declaration.json file
+    - type: 10
+      title: Debug errors
+      css: language-shell
+      payload: |-
+        # Log the generated data for easier debugging
+        python -m generator --json --log -i <file/directory>
