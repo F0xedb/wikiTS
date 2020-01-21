@@ -99,7 +99,7 @@
 <div *ngIf="section.type === 10">
   <p-fieldset legend="{{ section.title }}">
     <pre
-      class="line-numbers"
+      class="line-numbers overflow-scroll"
     ><code class="{{section.css}} pre-wrap" pCode>{{section.payload | stripWhitespace }}</code></pre>
   </p-fieldset>
 </div>

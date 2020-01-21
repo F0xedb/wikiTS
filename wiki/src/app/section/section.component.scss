@@ -17,3 +17,8 @@
 .pre-wrap {
   white-space: pre-wrap;
 }
+
+pre {
+  overflow: scroll;
+  white-space: pre-line;
+}
