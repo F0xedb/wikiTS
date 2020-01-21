@@ -18,9 +18,9 @@ import { SectionComponent } from "./section/section.component";
 import { LightboxModule } from "primeng/lightbox";
 import { OverlayPanelModule } from "primeng/overlaypanel";
 import { TableModule } from "primeng/table";
-import { UrlFormatPipe } from './url-format.pipe';
-import { FooterComponent } from './footer/footer.component';
-
+import { UrlFormatPipe } from "./url-format.pipe";
+import { FooterComponent } from "./footer/footer.component";
+import { CodeHighlighterModule } from "primeng/codehighlighter";
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,8 @@ import { FooterComponent } from './footer/footer.component';
     MessageModule,
     LightboxModule,
     OverlayPanelModule,
-    TableModule
+    TableModule,
+    CodeHighlighterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

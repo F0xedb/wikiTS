@@ -15,6 +15,7 @@ export interface PageSection {
   payload: string; // valid markdown (if a table this should be in csv format)
   width: string; // used by the image component
   height: string; // also used by the image component
+  css: string; // css class the note the language
 }
 
 export enum PageSectionType {
@@ -27,7 +28,8 @@ export enum PageSectionType {
   ERROR, //* this section is a error note
   IMAGE, //* this section describes an image (base64, url and more)
   LINK, //* a reference link
-  MAX //* Used internaly as the top of the enum list (currently equals 10)
+  CODE, //* the Code highlighter
+  MAX //* Used internally as the top of the enum list (currently equals 10)
 }
 
 @Injectable({

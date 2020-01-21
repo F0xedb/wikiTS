@@ -66,3 +66,10 @@
     section.payload | urlFormat: "name"
   }}</a>
 </div>
+<div *ngIf="section.type === 10">
+  <p-fieldset legend="{{ section.title }}">
+    <pre
+      class="line-numbers"
+    ><code class="{{section.css}}" pCode>{{section.payload}}</code></pre>
+  </p-fieldset>
+</div>
