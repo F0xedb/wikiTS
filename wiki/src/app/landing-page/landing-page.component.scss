@@ -44,3 +44,10 @@ section {
     }
   }
 }
+
+/* When the screen is to small the navbar will vanish*/
+@media only screen and (max-width: 768px) {
+  .welcome {
+    width: 100vw;
+  }
+}
