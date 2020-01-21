@@ -1,4 +1,11 @@
-<div class="lds-ripple center">
-  <div></div>
-  <div></div>
-</div>
+<section class="welcome" v-if="page == 'home'">
+  <img class="logo" alt="{{ name }}" src="{{ logo }}" />
+  <h2>{{ name }}</h2>
+  <p>{{ description }}</p>
+  <img
+    class="icon"
+    src="assets/menu.svg"
+    alt="Go to the home page"
+    (click)="home()"
+  />
+</section>
