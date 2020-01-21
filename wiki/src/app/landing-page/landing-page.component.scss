@@ -1,18 +1,4 @@
-$primary: #7c4dff;
-$light: #536dfe;
-$dark: #551a8b;
-
-// Tag colors (A200)
-$red: #ff5252;
-$pink: #ff4081;
-$purple: #e040fb;
-$deeppurple: #7c4dff;
-$indigo: #536dfe;
-$blue: #448aff;
-$green: #b2ff59;
-$yellow: #ffff00;
-$orange: #ffab40;
-$gray: #e0e0e0;
+@import "../../colors.scss";
 
 section {
   padding-top: 64px;
