@@ -11,6 +11,7 @@ interface PageSection {
   payload: string; // valid markdown (if a table this should be in csv format)
   width: string; // used by the image component
   height: string; // also used by the image component
+  css: string; // the prismjs css class to define the type of code
 }
 
 enum PageSectionType {
@@ -22,7 +23,8 @@ enum PageSectionType {
   WARNING, //* this section is a warning note
   ERROR, //* this section is a error note
   IMAGE, //* this section describes an image (base64, url and more)
-  LINK //* a reference link
+  LINK, //* a reference link
+  CODE //* the code highlighter
 }
 
 interface Footer {
