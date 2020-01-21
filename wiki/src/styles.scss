@@ -1,4 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import "colors.scss";
+a {
+  color: $light !important;
+}
+a:hover {
+  color: $dark !important;
+}
+
 .ui-menu {
   width: 100% !important;
   margin-left: -8px;
