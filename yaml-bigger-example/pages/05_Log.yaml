@@ -1,12 +1,25 @@
 - name: Log
   description: A log class used to log diverse information in the terminal
   sections:
-    - type: 1
-      title: Some title
-      payload: This page is used as a reference in the main page
-    - type: 9
-      title: We even have links as a section
-      payload: https://tos.odex.be
-    - type: 9
-      title: Or with alternate text
-      payload: link here;https://tos.odex.be
+    - type: 10
+      title: Method signature
+      payload: |-
+        export function log(payload: any, type: ELogType = ELogType.DEBUG);
+        export enum ELogType {
+          ERROR,
+          WARN,
+          DEBUG
+        }
+      css: language-ts
+    - type: 0
+      title: parameters
+      payload: |-
+        payload can be anything. It will call the toString() method and log that to stdout.
+        ELogType tells us the type of log. You can specify in the environment file which type to log.
+    - type: 0
+      title: Functionality
+      payload: |-
+        Simple logs the object to stdout.
+    - type: 5
+      title: Environment
+      payload: You can specify what to log in the environment file. Using the logLevel setting. The higher the number more information will be displayed

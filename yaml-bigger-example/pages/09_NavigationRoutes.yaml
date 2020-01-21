@@ -1,12 +1,92 @@
 - name: NavigationRoute
   description: A Rest endpoint /api/nav giving diverse information about the navigation around the wiki
   sections:
-    - type: 1
-      title: Some title
-      payload: This page is used as a reference in the main page
-    - type: 9
-      title: We even have links as a section
-      payload: https://tos.odex.be
-    - type: 9
-      title: Or with alternate text
-      payload: link here;https://tos.odex.be
+    - type: 10
+      title: Method signature
+      payload: |-
+        export function NavigationDescription(app: any);
+      css: language-ts
+    - type: 0
+      title: parameters
+      payload: |-
+        NavigationDescription takes an app as input.
+        This app is of the type ExpressApplication as declared by the express framework
+    - type: 2
+      title: Routes
+    - type: 10
+      title: info
+      payload: |-
+        /api/nav
+      css: language-sh
+    - type: 0
+      title: Action
+      payload: |-
+        Returns a navigation object as defined in the DeclarationDefinition
+    - type: 10
+      title: info
+      payload: |-
+        {
+          name: "WikiTS Navigation",
+          sections: [
+            {
+              name: "Classes",
+              elements: [
+                {
+                  name: "Class1",
+                  pageID: 1
+                },
+                {
+                  name: "Class2",
+                  pageID: 2
+                },
+              ]
+            }
+          ]
+        }
+      css: language-json
+    - type: 10
+      title: declaration
+      payload: |-
+        /api/nav/:id
+      css: language-sh
+    - type: 0
+      title: Action
+      payload: |-
+        Returns a navigation section.
+    - type: 10
+      title: info
+      payload: |-
+        {
+          name: "Classes",
+          elements: [
+            {
+              name: "Class1",
+              pageID: 1
+            },
+            {
+              name: "Class2",
+              pageID: 2
+            },
+          ]
+        }
+      css: language-json
+    - type: 10
+      title: declaration
+      payload: |-
+        /api/nav/:id/:elementID
+      css: language-sh
+    - type: 0
+      title: Action
+      payload: |-
+        Returns a navigation element from a specific section.
+    - type: 10
+      title: info
+      payload: |-
+        {
+          name: "Class1",
+          pageID: 1
+        }
+      css: language-json
+    - type: 5
+      title: pageID
+      payload: pageID is a reference to the array index of the pages section in the declaration file

@@ -29,3 +29,14 @@
       payload: https://tos.odex.be/images/logo.svg
       width: 300px
       height: 400px
+    - type: 10
+      title: HTML
+      payload: <a href="#"></a>
+      css: language-html
+    - type: 10
+      title: CSS
+      payload: |-
+        p {
+          font-size: 1.2rem;
+        }
+      css: language-css

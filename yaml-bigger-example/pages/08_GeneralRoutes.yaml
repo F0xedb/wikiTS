@@ -1,12 +1,34 @@
 - name: GeneralRoute
   description: A Rest endpoint /api/general giving diverse information the general state of the wiki
   sections:
-    - type: 1
-      title: Some title
-      payload: This page is used as a reference in the main page
-    - type: 9
-      title: We even have links as a section
-      payload: https://tos.odex.be
-    - type: 9
-      title: Or with alternate text
-      payload: link here;https://tos.odex.be
+    - type: 10
+      title: Method signature
+      payload: |-
+        export function GeneralDescription(app: any);
+      css: language-ts
+    - type: 0
+      title: parameters
+      payload: |-
+        GeneralDescription takes an app as input.
+        This app is of the type ExpressApplication as declared by the express framework
+    - type: 2
+      title: Routes
+    - type: 10
+      title: info
+      payload: |-
+        /api/general
+      css: language-sh
+    - type: 0
+      title: Action
+      payload: |-
+        Returns json containing general website information.
+    - type: 10
+      title: info
+      payload: |-
+        {
+          name: "WikiTS",
+          logo: "a link or encoded data such as base64",
+          description: "WikiTS example response",
+          company: "Company Name"
+        }
+      css: language-json
