@@ -1,7 +1,7 @@
 <div *ngIf="section.type < 2 || section.type > maxType">
   <br />
   <div *ngIf="inheritsName !== ''">
-    <p-fieldset legend="{{ section.title }}">
+    <p-fieldset class="pre-wrap" legend="{{ section.title }}">
       {{ section.title }} <b>inherits </b>
       <i class="pi pi-arrow-right icon-inherit"></i>
       <a
@@ -12,14 +12,13 @@
         >{{ inheritsName }}</a
       >
       <br />
-      <br />
-      {{ section.payload }}
+      <br />{{ section.payload | stripWhitespace }}
     </p-fieldset>
   </div>
   <div *ngIf="inheritsName === ''">
-    <p-fieldset legend="{{ section.title }}">
-      {{ section.payload }}
-    </p-fieldset>
+    <p-fieldset class="pre-wrap" legend="{{ section.title }}">{{
+      section.payload | stripWhitespace
+    }}</p-fieldset>
   </div>
 </div>
 <div *ngIf="section.type === 2">
@@ -53,25 +52,31 @@
 </div>
 <div *ngIf="section.type === 8">
   <p-overlayPanel [showCloseIcon]="true" #op>
-    <img src="{{ section.payload }}" alt="{{ section.title }}" />
+    <img
+      src="{{ section.payload | stripWhitespace }}"
+      alt="{{ section.title }}"
+    />
   </p-overlayPanel>
   <img
-    src="{{ section.payload }}"
+    src="{{ section.payload | stripWhitespace }}"
     alt="{{ section.title }}"
     [style.width]="width"
     [style.height]="height"
+    class="pre-wrap"
     (click)="op.toggle($event)"
   />
 </div>
 <div *ngIf="section.type === 9">
-  <a href="{{ section.payload | urlFormat: 'url' }}">{{
-    section.payload | urlFormat: "name"
-  }}</a>
+  <a
+    class="pre-wrap"
+    href="{{ section.payload | stripWhitespace | urlFormat: 'url' }}"
+    >{{ section.payload | stripWhitespace | urlFormat: "name" }}</a
+  >
 </div>
 <div *ngIf="section.type === 10">
   <p-fieldset legend="{{ section.title }}">
     <pre
       class="line-numbers"
-    ><code class="{{section.css}}" pCode>{{section.payload}}</code></pre>
+    ><code class="{{section.css}} pre-wrap" pCode>{{section.payload | stripWhitespace }}</code></pre>
   </p-fieldset>
 </div>

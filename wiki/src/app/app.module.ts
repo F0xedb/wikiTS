@@ -21,6 +21,7 @@ import { TableModule } from "primeng/table";
 import { UrlFormatPipe } from "./url-format.pipe";
 import { FooterComponent } from "./footer/footer.component";
 import { CodeHighlighterModule } from "primeng/codehighlighter";
+import { stripWhitespace } from "./strip-whitespace.pipe";
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { CodeHighlighterModule } from "primeng/codehighlighter";
     LandingPageComponent,
     SectionComponent,
     UrlFormatPipe,
-    FooterComponent
+    FooterComponent,
+    stripWhitespace
   ],
   imports: [
     BrowserModule,
