@@ -65,6 +65,7 @@ export class AppComponent implements AfterViewInit {
       // check if navbar is shown
       if (this.bShowNavBar) {
         // hide the navbar and update hamburger menu
+        this.bShowNavBar = false;
         this.navEmitter.next(false);
         this.navElementEmitter.next(false);
       }
