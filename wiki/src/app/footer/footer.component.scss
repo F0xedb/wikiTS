@@ -1,10 +1,11 @@
-@import "../../colors.scss";
+@import "../../custom.scss";
 footer {
   margin-left: -8px;
   margin-right: -8px;
   margin-bottom: -8px;
   display: flex;
-  width: 100vw;
+  // substract 16 pixels as each margin is 8px
+  width: calc(100vw - 16px);
   justify-content: space-around;
 }
 

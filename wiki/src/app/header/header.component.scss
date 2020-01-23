@@ -1,4 +1,4 @@
-@import "../../colors.scss";
+@import "../../custom.scss";
 
 :host {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
@@ -8,6 +8,18 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.logo {
+  height: 3rem;
+  margin: 2px 16px !important;
+}
+
+.a-clear {
+  color: #fff !important;
+}
+.a-clear:hover {
+  color: #fff !important;
 }
 
 h1,
@@ -33,6 +45,7 @@ p {
   display: flex;
   align-items: center;
   background-color: $primary;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: white;
   font-weight: 600;
 }

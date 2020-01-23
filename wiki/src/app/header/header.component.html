@@ -27,8 +27,11 @@
     <div class="bar2"></div>
     <div class="bar3"></div>
   </div>
-  <img width="40" alt="{{ name }}" src="{{ logo }}" />
-  <span [routerLink]="['/']" routerLinkActive="router-link-active">{{
-    name
-  }}</span>
+  <img class="logo shadow" alt="{{ name }}" src="{{ logo }}" />
+  <a
+    class="a-clear"
+    [routerLink]="['/']"
+    routerLinkActive="router-link-active"
+    >{{ name }}</a
+  >
 </div>

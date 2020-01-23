@@ -32,7 +32,7 @@ import { Observable } from "rxjs";
   styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
-  logo: string;
+  logo = "assets/logo.svg";
   name: string;
   node: any;
   @Output() navbar: EventEmitter<boolean> = new EventEmitter();
