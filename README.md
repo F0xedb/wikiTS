@@ -8,7 +8,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/F0xedb/wikiTS">
-    <img src="https://tos.pbfp.xyz/images/logo.svg" alt="Logo" width="150" height="200">
+    <img src="./logo.svg" alt="Logo" width="150" height="200">
   </a>
 
   <h3 align="center">WikiTS</h3>
