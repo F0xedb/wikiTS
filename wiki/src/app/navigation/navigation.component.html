@@ -21,6 +21,38 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
 -->
-<div class="menu" *ngIf="showable">
-  <p-menu [model]="items"></p-menu>
-</div>
+<div
+  *ngIf="showable && windowObj.innerWidth < 798"
+  class="screen"
+  (click)="clicked()"
+></div>
+<aside>
+  <nav>
+    <div class="items">
+      <ul>
+        <li *ngFor="let section of nav?.sections; let i = index" class="closed">
+          <div (click)="toggleMenuSection(i)" class="section">
+            {{ section.name }}
+            <i
+              *ngIf="section.name === selection?.name"
+              class="fas fa-chevron-down small rotatable-closed"
+            ></i>
+            <i
+              *ngIf="section.name !== selection?.name"
+              class="fas fa-chevron-right small rotatable"
+            ></i>
+          </div>
+          <ul class="fade" *ngIf="section.name === selection?.name">
+            <li
+              *ngFor="let item of selection?.elements; let j = index"
+              class="element"
+              (click)="open(i, j)"
+            >
+              {{ item.name }}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</aside>

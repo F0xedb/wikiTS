@@ -2,6 +2,8 @@
 
 section {
   padding-top: 64px;
+  // put the footer a good bit below the landing page
+  margin-bottom: 35vh;
   &.welcome {
     padding: 64px 16px;
     text-align: center;

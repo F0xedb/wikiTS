@@ -28,10 +28,9 @@ import {
   Navigation,
   NavigationSection
 } from "../services/navigation.service";
-import { MenuItem } from "primeng/api";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
-
+import { environment } from "src/environments/environment";
 @Component({
   selector: "app-navigation",
   templateUrl: "./navigation.component.html",
@@ -39,25 +38,60 @@ import { Observable } from "rxjs";
 })
 export class NavigationComponent implements OnInit {
   nav: Navigation;
+  selection: NavigationSection;
+  selectionID = environment.NAV_ID;
+  // reference to the global window object required by the HTML
+  windowObj: any;
   showable = true;
-  items: MenuItem[];
   @Output() navbar: EventEmitter<boolean> = new EventEmitter();
   @Input("update") navbarSetter: Observable<boolean>;
-
+  @Input("clicker") gridClicked: Observable<boolean>;
   constructor(private NavService: NavigationService, private router: Router) {
     this.NavService.getNavigation().subscribe(x => {
       this.nav = x;
+      this.selection = x.sections[this.selectionID];
+      console.log(this.selection);
       this.NavService.navigation = x;
-      this.populate();
     });
+  }
+
+  toggleMenuSection(id) {
+    // if this section is already selected that deselect it
+    if (this.nav.sections[id] == this.selection) {
+      this.toggleMenuSection(-1);
+      return;
+    }
+    this.selection = this.nav.sections[id];
+    this.selectionID = id;
+
+    // add environment fade animation
+    if (environment.fadeNavigationMenuItems) {
+      let elements = [...this.selection.elements];
+      this.selection.elements = [];
+      const interval = setInterval(() => {
+        if (elements.length === 0) {
+          // if all elements have been added clear the interval
+          clearInterval(interval);
+        } else {
+          // add one element at a time
+          this.selection.elements.push(elements.splice(0, 1)[0]);
+        }
+      }, environment.fadeNavigationTimeout);
+    }
   }
 
   ngOnInit() {
     this.navbarSetter.subscribe(x => {
       this.showable = x;
     });
+    // reference to the global window object required by the HTML
+    this.windowObj = window;
   }
-
+  open(i, j) {
+    console.log(i, j);
+    const element = this.nav.sections[i].elements[j];
+    this.page(element.pageID);
+  }
   page(id: number) {
     this.router.navigate(["page", id]);
     this.navbar.emit(false);
@@ -72,25 +106,8 @@ export class NavigationComponent implements OnInit {
     this.showable = true;
   }
 
-  getSectionItems(section: NavigationSection): MenuItem[] {
-    let items = [];
-    section.elements.forEach(element => {
-      items.push({
-        label: element.name,
-        command: () => this.page(element.pageID)
-      });
-    });
-    return items;
-  }
-
-  //* populate the navigation screen
-  populate() {
-    this.items = [];
-    this.nav.sections.forEach(section => {
-      this.items.push({
-        label: section.name,
-        items: this.getSectionItems(section)
-      });
-    });
+  clicked() {
+    this.showable = false;
+    this.navbar.emit(false);
   }
 }

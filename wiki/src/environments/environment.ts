@@ -28,7 +28,12 @@
 
 export const environment = {
   production: false,
-  baseURL: "https://wiki-api.odex.be"
+  baseURL: "https://wiki-api.odex.be",
+  fadeNavigationMenuItems: false,
+  fadeNavigationTimeout: 200,
+  // ID of the navigation section that needs to be open at the beginning,
+  // If the value is -1 then nothing is opened at startup
+  NAV_ID: -1
 };
 
 /*

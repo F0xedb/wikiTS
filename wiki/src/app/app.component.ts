@@ -58,17 +58,4 @@ export class AppComponent implements AfterViewInit {
       this.bShowNavBar = event;
     }
   }
-
-  clicked() {
-    // only hid the navbar when clicked
-    if (window.innerWidth < 798) {
-      // check if navbar is shown
-      if (this.bShowNavBar) {
-        // hide the navbar and update hamburger menu
-        this.bShowNavBar = false;
-        this.navEmitter.next(false);
-        this.navElementEmitter.next(false);
-      }
-    }
-  }
 }

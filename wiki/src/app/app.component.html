@@ -22,7 +22,7 @@
   SOFTWARE.
 -->
 <app-header (navbar)="navBarStatus($event)" [update]="navEmitter"></app-header>
-<div class="grid" (click)="clicked()">
+<div class="grid">
   <app-navigation
     *ngIf="bShowNavBar"
     class="nav"
